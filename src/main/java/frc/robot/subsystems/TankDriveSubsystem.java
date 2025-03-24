@@ -1,24 +1,26 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.spark.SparkLowLevel.MotorType;
+import com.revrobotics.sim.SparkMaxSim;
+import com.revrobotics.spark.SparkMax;
+
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class TankDriveSubsystem extends SubsystemBase {
-    Spark frontLeft;
-    Spark frontRight;
-    Spark backLeft;
-    Spark backRight;
+    SparkMax frontLeft;
+    SparkMax frontRight;
+    SparkMax backLeft;
+    SparkMax backRight;
     DifferentialDrive driveTrain;
 
     public TankDriveSubsystem() {
-        frontLeft = new Spark(0);
-        frontRight = new Spark(1);
-        backLeft = new Spark(1);
-        backRight = new Spark(1);
-        backLeft.addFollower(frontLeft);
-        backRight.addFollower(frontRight);
-        driveTrain = new DifferentialDrive(backLeft, backRight);
+        frontLeft = new SparkMax(4, MotorType.kBrushed);
+        frontRight = new SparkMax(2, MotorType.kBrushed);
+        backLeft = new SparkMax(1,MotorType.kBrushed);
+        backRight = new SparkMax(3, MotorType.kBrushed);
+        driveTrain = new DifferentialDrive(frontLeft, frontRight);
     }
 
     public void drive(double x, double r) {
