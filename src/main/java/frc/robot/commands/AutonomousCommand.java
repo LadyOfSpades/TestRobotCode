@@ -17,7 +17,7 @@ public class AutonomousCommand extends Command {
     }
 
     public void execute(){
-        tankDriveSubsystem.drive(0, .5);
+        tankDriveSubsystem.drive(.5, 0);
     }
 
     public boolean isFinished(){

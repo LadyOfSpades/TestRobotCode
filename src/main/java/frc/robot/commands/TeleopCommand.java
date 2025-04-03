@@ -15,7 +15,8 @@ public class TeleopCommand extends Command {
     @Override
     public void execute() {
         System.out.println("teleoperating "+xboxController.getLeftY());
-        tankDriveSubsystem.drive(xboxController.getLeftX()*-0.5, xboxController.getLeftY()*-0.5);
+        tankDriveSubsystem.drive(xboxController.getLeftX()*-1, xboxController.getLeftY()*-1
+        );
     }
 
     public boolean isFinished(){
